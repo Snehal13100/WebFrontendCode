@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .div1 button {
+      padding: 1rem;
+
+      color: red;
+    }
+    #img {
+      height: 200px;
+      width: 300px;
+      display: block;
+      background-color: red;
+    }
+  </style>
+
+  <body>
+    <!--2) When we will click the animal name button then it will show that animal images.-->
+
+    <div class="div1">
+      <button onclick="showAnimal('dog')">Dog</button>
+      <button onclick="showAnimal('cat')">Cat</button>
+      <button onclick="showAnimal('rabbit')">Rabbit</button>
+      <button onclick="showAnimal('parrot')">Parrot</button>
+      <button onclick="showAnimal('sparrow')">Sparrow</button>
+    </div>
+    <br />
+    <br />
+    <!--Adding images-->
+    <img id="img" src="" alt="Animal Images" />
+
+    <script>
+      //. 1.function create for animal name click to show image of animal. (by using if and if else loop).
+      //   function showAnimal(animal) {
+      //     let img = document.getElementById("img");
+
+      //     if (animal == "dog") {
+      //       img.src =
+      //         "https://heronscrossing.vet/wp-content/uploads/Golden-Retriever-1024x683.jpg";
+      //     } else if (animal == "cat") {
+      //       img.src =
+      //         "https://images.pexels.com/photos/14505492/pexels-photo-14505492.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+      //     } else if (animal == "rabbit") {
+      //       img.src =
+      //         "https://images.stockcake.com/public/b/8/4/b841c842-9042-4062-99f7-20dd1ef43c45_large/cute-white-rabbit-stockcake.jpg";
+      //     } else if (animal == "parrot") {
+      //       img.src =
+      //         "https://media.istockphoto.com/id/1075294162/photo/malabar-parakeet.jpg?s=612x612&w=0&k=20&c=fg6ADHX0JjJuCA8n1zARTp14ZDpMCd_yFzFs0dxTGtw=";
+      //     } else if (animal == "sparrow") {
+      //       img.src =
+      //         "https://t3.ftcdn.net/jpg/04/16/59/34/240_F_416593441_MlBgBq4TWc1AphpwOrxXn5bbaZggBVQO.jpg";
+      //     }
+      //   }
+      //------------------------------------------------------------------------------------
+      //2. above work we can do using object of array
+
+      let animalImages = {
+        dog: "https://heronscrossing.vet/wp-content/uploads/Golden-Retriever-1024x683.jpg",
+
+        cat: "https://images.pexels.com/photos/14505492/pexels-photo-14505492.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        rabbit:
+          "https://images.stockcake.com/public/b/8/4/b841c842-9042-4062-99f7-20dd1ef43c45_large/cute-white-rabbit-stockcake.jpg",
+
+        parrot:
+          "https://media.istockphoto.com/id/1075294162/photo/malabar-parakeet.jpg?s=612x612&w=0&k=20&c=fg6ADHX0JjJuCA8n1zARTp14ZDpMCd_yFzFs0dxTGtw=",
+        sparrow:
+          "https://t3.ftcdn.net/jpg/04/16/59/34/240_F_416593441_MlBgBq4TWc1AphpwOrxXn5bbaZggBVQO.jpg",
+      };
+
+      function showAnimal(animal) {
+        document.getElementById("img").src = animalImages[animal];
+      }
+    </script>
+  </body>
+</html>

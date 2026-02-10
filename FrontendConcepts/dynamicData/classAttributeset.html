@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .para {
+      background-color: red;
+      color: yellow;
+      padding: 30px;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+  <body>
+    <p class="" id="para">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem
+      praesentium ab corporis distinctio? Magni numquam ipsa architecto sunt
+      sapiente voluptates voluptate accusamus deserunt, aperiam repudiandae?
+      Natus fugit praesentium laboriosam exercitationem.
+    </p>
+
+    <a href="weblink" id="link" title="Helllooo😁👍" target="_self"
+      >Anchor Tag</a
+    >
+
+    <script>
+      let para = document.getElementById("para");
+      para.title = "Hiiii😍😍";
+      //   para.class = "para"; //We can not apply value like this folow below method.
+
+      // setAttribute methods are used to set attribute.
+      para.setAttribute("class", "para");
+      para.setAttribute("value", "😊😊😊😊");
+
+      //getAttribute method used to get attribute.
+      let anchor = document.getElementById("link");
+      console.log(anchor.getAttribute("id"));
+      console.log(anchor.getAttribute("title"));
+      console.log(anchor.getAttribute("href"));
+
+      //removeAttribute method used for remove that attribute.
+      anchor.removeAttribute("target");
+    </script>
+  </body>
+</html>

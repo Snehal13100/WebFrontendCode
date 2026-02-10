@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+    Promise:
+    There are 3 stages in that-
+    1)Pending
+    2)Completed
+    3) Rejected
+    
+    -->
+    <script>
+      //   let userAge = JSON.parse(prompt("Enter Age..."));
+      //   if (userAge) {
+      //     checkPromise();
+      //   }
+
+      //   function checkPromise() {
+      //     let prom = new Promise((complete, reject) => {
+      //       setTimeout(() => {
+      //         if (userAge > 31) {
+      //           complete("✅");
+      //         } else {
+      //           reject("❌");
+      //         }
+      //       }, 1000);
+      //     })
+      //       .then((resp) => {
+      //         alert("user age is greater than 30" + resp);
+      //       })
+      //       .catch((err) => {
+      //         alert("user age is less tha 30" + err);
+      //       });
+      //   }
+
+      //Handle multiple data
+
+      //we have take that api frome fakeapi website.
+      let api1 = "https://jsonplaceholder.typicode.com/users";
+      let api2 = "https://jsonplaceholder.typicode.com/todos";
+      let api3 = "https://jsonplaceholder.typicode.com/comments";
+
+      //Promise.any call index 0(first) data only
+      // let allPromise = Promise.any([api1, api2, api3]);
+
+      //Promise.all call all data
+      //   let allPromise = Promise.all([api1, api2, api3]);
+      //   console.log(allPromise);
+
+      let allPromise = Promise.all([fetch(api1), fetch(api2), fetch(api3)]);
+      allPromise.then((res) => {
+        console.log(res[2].json());
+      });
+    </script>
+  </body>
+</html>

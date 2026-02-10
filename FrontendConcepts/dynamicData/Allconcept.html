@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--Adding javascript file-->
+    <!-- <script src="./basic.js"></script> -->
+  </head>
+  <body>
+    <h1 id="head">Message</h1>
+    <img id="img1" />
+    <br />
+    <a id="link"></a>
+    <p id="para"></p>
+    <div id="div"></div>
+    <i id="italic"></i>
+    <u id="u"></u>
+    <br />
+    <b id="bold"></b>
+    <br />
+    <br />
+
+    <input type="" placeholder="" value="" id="input" />
+    <script>
+      let h1Tag = document.getElementById("head");
+      h1Tag.innerText = "Hi im js";
+      h1Tag.title = "Im message 😊";
+      console.log(h1Tag);
+      let imgTag = document.getElementById("img1");
+      imgTag.src =
+        "https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp";
+      imgTag.style.height = "200px";
+      imgTag.style.width = "200px";
+      let linkTag = document.getElementById("link");
+      linkTag.innerText = "Facebook button";
+      linkTag.style.fontSize = "2rem";
+      linkTag.href = "https://www.facebook.com/home.php";
+      console.log(linkTag);
+      let paraTag = document.getElementById("para");
+      paraTag.innerText = "hii im a paragraph text";
+      paraTag.style.color = "red";
+      console.log(paraTag);
+      let divTag = document.getElementById("div");
+      divTag.innerText = "im text from division tag.";
+      divTag.style.fontSize = "2rem";
+      let italicTag = document.getElementById("italic");
+      italicTag.innerText = "hello im italic tag.";
+      italicTag.title = "its write by using <i> tag";
+      let uTag = document.getElementById("u");
+      uTag.innerText = "im underline text";
+      let boldTag = document.getElementById("bold");
+      boldTag.innerText = "im here bold tag.";
+      boldTag.style.color = "green";
+      let inputTag = document.getElementById("input");
+      inputTag.type = "text";
+      inputTag.placeholder = "Enter any message";
+      inputTag.value = "Hii im emoji..👌";
+      console.log(inputTag);
+    </script>
+  </body>
+</html>

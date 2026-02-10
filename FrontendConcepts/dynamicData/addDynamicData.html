@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family:
+        "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    }
+    .mainBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      text-align: center;
+      gap: 50px;
+      justify-content: center;
+    }
+    img {
+      height: 300px;
+      width: 300px;
+      border-radius: 10px;
+    }
+    .box select {
+      padding: 13px;
+      size: 10px;
+      color: red;
+      font-size: 1rem;
+      width: 600px;
+    }
+    .addData {
+      border: 1px solid red;
+      padding: 20px;
+      gap: 20px;
+      /* margin-right: 250px; */
+      /* width: 100vw; */
+      background-color: beige;
+    }
+    .addData input {
+      width: 200px;
+      padding: 15px;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px;
+      margin-top: 15px;
+    }
+  </style>
+  <body>
+    <section>
+      <div class="mainBox">
+        <div class="addData">
+          <input type="url" placeholder="Enter image Url.." id="url" />
+          <br />
+          <input type="text" placeholder="Enter name" id="name" />
+          <br />
+          <button onclick="addImg()">Add to List</button>
+        </div>
+        <div class="box">
+          <select id="options" onchange="showImage(value)">
+            <option selected disabled>---Select Images---</option>
+            <option
+              value="https://images.unsplash.com/photo-1559563362-c667ba5f5480?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cm9zZSUyMGZsb3dlcnxlbnwwfHwwfHx8MA%3D%3D"
+            >
+              Red color Rose
+            </option>
+            <option
+              value="https://images.unsplash.com/photo-1597826368522-9f4cb5a6ba48?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJvc2UlMjBmbG93ZXJ8ZW58MHx8MHx8fDA%3D"
+            >
+              Pink color Rose
+            </option>
+            <option
+              value="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQAwgMBEQACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQYBAwQCBwj/xAA3EAABAwIEBAMFBwUBAQAAAAABAAIDBBEFEiExBhNBUSJhcRQVMoGRI0KhscHR4QczUnLwYiT/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAwQBAgUG/8QAMxEAAgIBBAAFAgUDAwUAAAAAAAECAxEEEiExBRMiQVEy8GFxocHRFIGxkeHxBiMzQlL/2gAMAwEAAhEDEQA/APuKAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgNckrI43PkcGtaLkk6ALDaSyzKTbwuzkwzGKHFGvdQ1DZchs4AWI+XyUdV0LVmDyTX6a2hpWLGTuBupSAygCAIAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIDyTugKnxzW0vugNFW4SGQZWxOuHW3DvL9bLn666vysN8nZ8Hpt8/O3jHv+xRcNxSroKouoZnsMmpA0uPPuuHXqLK+YPB6XUaSq6GLEfR+HuIm14ENVljn6EfC7+V2tH4hG70z4f+Tyet8PdHqhzEsF10jmmUBhxsNEB4imZLn5bg7Kcpt3QGxAEAQBAEAQBAEAQBAEAQBAEAQBAa5pWxNc97g1oFySsN4XJlJt4RSse4imle6GMPijBIt1d6kdF57W66c3sjwv1PQaLw6MVvlyyqyxyVbic/Lj7m9voudGOTuRlGpdZZvhwRpLXe03cNNG/wArZwjjsinrmsradsdC2nP207j6CyxiMeSu73PqJKRYzWMbFFDUvc1hv4zcu8ieytR8RuSUU+ilLQ1PMnHv7yWCXiShgoxPNIQ+39oC7r/91Xfq1VdkN6f8nn765Uy2yKlj3GtTUPNNQO5MZeWOf962ovfoorNQ2sRKsrH0i6cM05psCo4z8XLzO9TqfzVqtYiiWPRKKQ2CAIAgCAIAgCAIAgCAIAgCAIDRV1UFLHzKiZkbL2u421Wk7IVrMng3rrnZLbBZZS8dxuOtmMbZ2NgafC0AknzIsvPa3V+c3FP0nf0WilUlLbyQ730z7hrZHvAFnvblaPluVQ4XJ0FGxd9fqc80TrXZ4j0AKjbb6ZPGa9zgkrzTOyy8yN3/ALbZPLmydVRnz2SFHigdbmSZmnqdQsxk4Pkr26X4RurJYomsmhILCbOt37raf/0iOqEpNwl2boKqmrY+RUEEHY7EKSnUbHyVNZoN8cSRxe4ZYKjOHh7HXyObuB+hXVrujPCbwzy92jnU21yj6hhTmnD6csaWs5Yyg72suyuEax6OtbGQgCAIAgCAIAgCAIAgCAIDFwgOLEMUpKFv28wDjswak/JV9RqqqFmb/sTU6ey76EUniPEZMSmaHfAw/ZsA2XB1Wqnc+eF8Ho9Dpo6dZ9/dkVTlsLXNBBP3j59VRc1FF2Sc+zhxSpBF/EC06WKLMyxRXtIZ+NSxyCMEucdmjdSx0u7lEslBdks0S1Y5GJcsxObfMx13A9v+0WixDmLIPpea1ydDo6KItAjOY6ZvhB+i1lJyfJhO1mnEad/u6WSlLiW2cWXvcDchSVQTeDau3bYt5X6TE3ufobnpqt56dIvtKXsWzCsZmLGtmDsu2ouq+5xeDlajRwzmJasCxWpNdSUUbmmB7nXzC5aA0mwK6+h1d0pxrzwcLV6KqNU7Mcr+S4B2guu8cU9IAgCAIAgCAIAgCAIAgCAruOY5yOfSQBzZfhEnYne3muVrPEFW5VxXJ0tHot+2yXRS3RimlMkssk0pGgc69vVcLPO6XLPRJ747UsI3VjHsgaXGOMuALnu3N+gCzblJEdUlKbxyRrTE0F0rzbcNI3UCWGXHu6RolxeFujS3LtYiylSsfQVS7bNMdTh2Dxi4IkdqXNtdt+moK3xba+COzL+p8EDjFXLK/nYdKJyAS5sf3x6dHAbjqNR1V2mmKW2ax9/4I3qJriPJpwrHpvaTTVLuW+QZYw4XBf0BW9mkjtco8iOo9SjPjJY8HxmOWoZTSgRzFudrXbPGxHnZULNPKqO+PKN7HGT2+/x+55quHKVsmekc6E7tOYlp12I/ZbrU71hkteokuyYw5hZG2N1g5u+U7qrjlkd8svJte3EHVccWEOy1rnWjdcC3c39Lq/4epeesHN8Rz/Ry/t/lFzwiE4LAXYxjc1XUyfEJX+Fvkxu/5r0LsjBeqR5rBL0lZ7UTkp5mRjZ8rcub0B1+oW8JqSzgYOtbmAgCAIAgCAIAgCAIDgxHFabDwOfIA47MG5UF+proWZk9GmsufoRTa2dk1VNUMGR8puRe9ivM6m/zbHLGMnfoqcIKD5wc9NHHldUS+JoNgD95yjrisOb6J7JS4gjirKeprJM8jXAE6DuPJRNuUsssVWV0xwjgq2zOppGNsch2A+Fb9k6cU8/JSWPElZKZiTFDa7f8nE2aP1+S6qhiCx2/tlZ25m0+l94POKirxfFZG048AJbGLWu1uhd6eakpUKa05d+/8FW6UrpYzhffJiGop6GJsWHtoZapts8mcSOe7yufwGizKM5vM8qPx7ff4sxW6VHFck5fnyd1dh8Ve6lrKVhjLntMoB+B29x22PzChhY624SfBblWrYpkfj7ZHNp5YHFj4iXtc06hxN1vppxy4vpm+qpbipR7R9CwVklbglLVFwcZoWPc07A2uVyJ07bZJezIVqFLDaNlOPF4T13GxSOOixN/Jw1VSW49S0sr+TE94HO5uQ66aHppdX9LUtz5K11sPKlCS4aZ9Yoaahw6nyU3LjZuXF1y7zc46ld+EIQWInksSb6O5tiARqN7qU1PSAIAgCAIAgCAIAgMOQFL4xwbDaiV03top64gWaSXB/a43HquXr66XzKWGd3wvWaiC2qGYf6Y/uVmMvgjtIvONrJ3GlN5Rsw3EI4anLUf2n7X2BUtb9iPUUSlDMeyaxGZsAD3AgOZZjhq35n6KSa2nOog5vCKNxK7EcJY6vpJCNRm0u0t8x1Gyl0ajKeyfudC6yLqyu0QRpHmgqcQiylplbUWB2FjcH0cforqmnJQ/DBXdUl65ffH8nnGcomgwmMCOnMbbtu77Zw0uSNTa1rabLbTttOx9kV+FKNaJLCqaOOICSDD5aZ/2Y5MI8DrbOvrfUb91V1Fkm+3n8X9osaaiK6OvC4WwVEtOxt4bNcMo01cL/m5QSk5Ry+y41t4/MioMKrMWe+GnjuM+r3bM01v+ysb41pSZm+xRT3E97yjoaRvDlFmknp4DzJn6DTcAfP5bKOUXJebL3ZUpqxLe+lyjo4arI6yBj2G7XDTVU7a3VZtZZvanBWR9zrxfD45J4anIHCM9RcDsVtOctmIlenbN4mjmmooXEvLG3A6NFrqCEpJFyFzj6V0fUeHaxtdg9LM218ga4Do4aEfgvY6a1W1KaPFa2p1aiUH8kopysEAQBAEAQBAEAQBAUfjLkDF4yw2mMIElugvp+F15/xfa7FjvB6Hwnf5Dz1nj9/2IN9MHNLnOzaaBcfB1Fa1xg43U+RzpSLW0AClguMk6sziJy57ExlxyuG3T6fVZXJI445SGM0uLRUI9if7RSlln05aHMljI1A7FWNPPa8S/s/hnPu8ux/DXZB4aySGRgjzOopXFjZAPhvpZ3Yg2Bv281asSbb9yZSxDZIlm4UJY5HVLZGSHO3wt+G4ymx9P0VSd7g/T0JbJI8wYcymhDISAxjgczwGkbbjqfNa2XSsluaN6o7I49zqpnOqOZFSeCmjN3WboXnYefdaxjJrLM2bINN8tmsYx7sozT0UcYadeYblxJ67rMZOT5My0cbJb5tlewxshGMYo3UwUzmgnW7jqT+A+qvNcQh+OTS9pPBv/p1TVPsZqHDLAHkNcTo7vZV/FGvMSXZX09qdGx/PBZ62cSXZGLXAub6lUYNrstU17eWTnCVHhWIZjiUofV58scEk1g5ths3S/Xuu5oNPRZDMlz+hx/FNXdp5qutpJ89c/wCpe6SngpYWw08TIowdGtFhddeMYwWIrCPPznOb3TeWdC3NQgCAIAgCAIAgCAw429EBR+IuTilWZqduV8bcoff+5a+4XJ11Eb8yj2i9ofEXRLy5fQ/0IOOQgZXX/ZcGSabTPTtJ8o3uYJKZwaLlo+q2T9BGntlyVXGOZADoWkagjoVnTpOR0otODaOTB63E/eFA2krZRzonB8ZddrnAE3t0I11HZX2koSWPfgoW1RlKM59YOirgqqelNdM6SCqEpzSWztP+46g7XttvfdYjKMpbezMsNbV0eqTG6V0bWPwZj6j/ACgnOR/mG7rWdMf/AF/UzHzk+Z8fkv8AJieqqqvwmklgowdWZeW0+riPzuVrGrCy3kkjKK4T9Xz2yRrJmYdgzYI5HOkk+FoBa1o65QdT/sd1G3ufBHXF2XOcl19/aK2GVOKTmGhZntYOfs0eZKlUI18yLVlqiuS20+Ex4bgXu2VzXukaecWm2Yu3/ZR23NS3+/sc6K82T+D2RFT0sdPAxscTGgBg0AAVXDnJyl2yeuvHRyU5Ekrn62J0BUcvqLc+Fgr/ABf4K2ntoDEbet11NL/48njvHpP+oj+RKcJf1GrsFZHSYhnraJjySSS+ax7FztbHodgupXqZR4kciNvyfZsKxWixalbVUE7JondWn4T2PYq9GSksomTydoK2MmUAQBAEAQBAYKAr/FeJMp4G0+YEyavblBOX5+aguntWDScvYqU9awsuCCNnN6qrn4IjidK2R1hmA0GZw6rn6uhP1o9D4Pq235Evbr+DroJPFyzvuFQisLB2bo+5vrMNpaqLlzZT6oq2nlEML5xfBXpeDzTSx1GHV88UsUnMj0a4NJ3+RVpamUVzFMSn5npbwT1PSS10TTPIGTBuWdhZZjz106XUDSb3R4MSsVPDWV8lbxngqKIunZXsoYA65EmUtb6HMLfirVd8nxKOWY/qNy9LNNHJQUD2yNqJMXnbpHJVykxx/wCoPRYnZLOMYLUNNOazJ4/Ls1SU82LV5q8UkLmjaOA2Fu17afJRu2MF6eyyqtkVGHBITVOSI0NDAympra5T4jffXoopW+/uYq0yzum8s90zGxgWADRt5KuouTyySeFwjkqqw1FQ6ngF4m6PkP3j2Hkp5JQgvkzTFt7mdtI0NYCqecsxY+Sv8bNHNo3dckgv0Hw7rq6N+ho8f/1BH/u1y/B/sVVwJIAsOmmiuo4GSw8FcTVXDuLRStmd7K94E8LnkMcP8iADqB5XUtVmyWfYlhPDP0VTTRzwslgkbJE9ocx7TcOB6rpotG1AEAQBAEAOyAjMaximwmldLO68lvBEDq89v5Wk5qKyYbwj5fiE1bi1U+sqJWRl9rZmguA7C37qjJSnLLK7y3k8SUcdK8OHjlGpc/t6Lby0geZXyOqYtfCwEnXc9lrb6YNv2Lejrdl8IJ45Dqx0Y+0zA62czQrh7k3k93Gn095/M2R1c7xmZI53rqViW7HBl1Vr2PFVUVcsD4TUTMa4WPLdlP1GqiVsoy7Copb5RVJZcWwWodLTVVS+N25zkut5339V067K7o46ZVso8r23R/Vff/Jqp8UlrZA2MyTTE6jVxv5rE6dnMnwTV6iEliJP4dgYztlqGtMg1LW6N/lU53OXph0SSklyTEskFLGM1u1rblIrCNFGU2Qs2Iwxl0kpLnE62KxGtyZYbSWEczsQmqgQ05Yr/C39StnFQ4Kinvl+B1UrQALqtYy/FpR4Jmka0tsAoUVLXhkRxk10dJAY9DnN/Pwn+F0dG1ymec8bi3XGX4/sUwtDjd7bHy3XQ3fB5g1uab3BB7+HZbJmvTP0J/TTFG4nwnSHMwyU45LwxuUC22npZdKie6H5F6Dyi1KY2CAwgMoAgCA0zU0NQLTwRyDs9oKxhMEZXcMYPWxGOWhjZcg5ofs3Cxvu2xWHCL9jGEV+u4CkLjJRYnIX5QAKhocN9dRYrR1L2MbUVyfh7iGicHzUEckfMy/ZSgktvbMb6AW1te/qoLqpTrcUWNJNU3Rm+kcdfGWXa5ljtqvOyjKDxJYZ7nT2xsWYvKIyjr20VSc7S+M/EBuD3C3guOTN0crgmoa+mr5TFFEWANuXvA112AC1trjjJV2218s3VGHU5aS6xF+qrxjL2No6iT4waaaioKMOcxkTS465QBcqwoznH1PJq5PdwsHBjHEdLhzcgbz5nbRRakeZPT81Yq07l3wiOdij1yyq+24niNZNNLAWte3LGwaCMfPf1U9kaYxSyb6V3OTbXBsZh88pzTSZj2bsoJXQX0os+TKf1MlaKgfGNAVTsuTN1VGJKRU7tAWkfJVpSNnJJcEjTwStI0081qitZZFkXxUHNw43aDZ7T+Nv1V7SL1HH8Zhv0ja9min8iScEsgke0GxLG5rFdGMZex5JoufC/wDTPEMRkM+LB1FSEeEB4Mj+oPUW8738ldr00pczNo057PqHD/C2HcP393CZpc0NkL5nOD7dSDorUKI1vMSeMFHonApjYIAgMoAgCAIAgMFAapGBwtbVYaMoqfGxfT4HVcuhM7ntytDI7ltza+mqr6lZg1jJ0/DNvnxk5YSPktVBUUhZz2hr33IaXAkAd1x50OGMnqY3Qs+lm/CKnltEsT7zB5uxw0AUV9ajFSEJ791ZmaoqnEuNRLcm5s8hRKRPsiujgFQ4TD2pznjYPOrmj9lP9UfSRrCfRIUsUMgLospBPQKCe5EuUSVNQsPRV5Nmrng7oqWNo1aFrt5InazrggMhDYY9TsTYAKWGhum+EU56uuP1SJOnwWre25qIQejbH81dXhE9vM0mUp+J1J42sVFDiFKwvkp88Y3fEcwHn3VW3w6+pbmsr8CSvVae14UsP4fH+xH0s4bilI+wcOewFpFwQTY+uhTRvban+JYvqVmnnGXw/wDb9T6ZDTQROe6KGNjn/EWsAzW2uvWYR43CN7QBtoFkyZQBAEAQGUAQBAEAQBAYIQGt8bXCxFwhlPBDYxw1huLFjq2lZK6O+XN0v6KKdUZdotU6uyrKi+yr4pwHTAmShYIX9Mmyhs08ZLGC9Tr8PsrFZwjikTyA5pHmCufLRY6OpDXxkRNRwpirnZsliOzTZbxo2rGDL1WXuyeqPCccoMwFHzWON9GG60npt3sSR1i+USEdVVRH/wCihni7+EqpLSTRMtRXL3PTqh88oEJdktdwtZSUUuLy0V9RYmkosnMLkMdswI6bLoQb9zm2QTLDS1AsNQrMZFOdSJSnma6wuApYyKsoNHPBw9RsxNlbG42a7M2I2sHdLfmqkdBVG7zUWZ+I3SodT/LJYGK+c49oD0gCAIAgMoAgCAIAgCAIDCAWCAw5ocgNboGHdo+iYM5Z4NLCd2j6LGEZ3y+TyaSL/EfRMIzvZh1JC4WLWkdiEwhvl8mr3ZSXuIIr/wCgWNsfg282fyZ93U2wiZ8mptRjzZ/JrfhcB05dvQLGxGyukaThRabxvI8imz4NvPz2dVNTSM3IWUsEMpZOxoWxqekBlAEAQBAZQBAEAQBAEAQBAEBhALIAgCAIDCAWQCyAWQBAZQBAEAQBAEBlAEAQBAEAQBAEAQBAEAQAoDCAIAgCAIAgCAIAgCAIAgP/2Q=="
+            >
+              Orange color Rose
+            </option>
+            <option
+              value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR66_Xh6j4TfzX8HXLO8jO5vkNJRyZZGBFZGxJBPQlW_yihgIx2VPAKlLY&s"
+            >
+              Black color Rose
+            </option>
+            <option
+              value="https://images.unsplash.com/photo-1594505270395-a47b48ffbc74?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHJvc2UlMjBmbG93ZXJ8ZW58MHx8MHx8fDA%3D"
+            >
+              White color rose
+            </option>
+          </select>
+        </div>
+        <div class="box" id="box">
+          <!-- <img src=" " alt="" /> -->
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function showImage(url) {
+        console.log(url);
+        let box1 = document.getElementById("box");
+        box1.innerHTML = '<img src=" ' + url + ' "alt="" >';
+      }
+      function addImg() {
+        let urlImg = document.getElementById("url").value;
+        let name = document.getElementById("name").value;
+        let options = document.getElementById("options");
+        options.innerHTML +=
+          '<option value=" ' + urlImg + '">' + name + "</option>";
+      }
+    </script>
+  </body>
+</html>

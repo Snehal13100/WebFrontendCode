@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style></style>
+
+  <body id="body">
+    <button
+      onclick="
+        showImage(
+          'https://t4.ftcdn.net/jpg/11/36/16/55/240_F_1136165509_90jXk3yHsTuXyfVcv2AHnvH3qNOUObTR.jpg',
+        )
+      "
+    >
+      Parrot
+    </button>
+    <button
+      onclick="
+        showImage(
+          'https://t3.ftcdn.net/jpg/02/11/84/24/240_F_211842409_x0jwb7jcodOWBYpw7Ucty99wUAzfOubB.jpg',
+        )
+      "
+    >
+      Sparrow
+    </button>
+    <button
+      onclick="
+        showImage(
+          'https://images.pexels.com/photos/29614673/pexels-photo-29614673/free-photo-of-vibrant-peacock-in-natural-habitat.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        )
+      "
+    >
+      Peacock
+    </button>
+    <button
+      onclick="
+        showImage(
+          'https://images.pexels.com/photos/33890372/pexels-photo-33890372.jpeg',
+        )
+      "
+    >
+      Crow
+    </button>
+    <button
+      onclick="
+        showImage(
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkV5RCCCSXjdfIJ3BcKVfAZNyZwYz30r7sKg&s',
+        )
+      "
+    >
+      Duck</button
+    ><br /><br />
+
+    <input type="text" id="imgWidth" placeholder="Enter width" />
+    <input type="text" id="imgHeight" placeholder="Enter height" /><br /><br />
+
+    <img src="" alt="" width=" " height=" " id="animalImg" />
+
+    <script>
+      function showImage(animalName) {
+        let img = document.getElementById("animalImg");
+        let width = document.getElementById("imgWidth").value;
+
+        let height = document.getElementById("imgHeight").value;
+
+        // body.style.backgroundImage=animalName
+
+        img.src = animalName;
+
+        img.style.width = width + "px";
+        img.style.height = height + "px";
+      }
+    </script>
+  </body>
+</html>
